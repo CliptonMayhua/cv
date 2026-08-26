@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum | Clipton Mayhua Coaquira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056b3', // Azul principal
+                        secondary: '#4fc3f7', // Celeste secundario
+                        dark: '#333333',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos base Flat Design */
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Efectos Flat para botones y tarjetas */
+        .flat-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .flat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .flat-button {
+            background-color: #0056b3;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .flat-button:hover {
+            background-color: #004494;
+        }
+
+        /* Estilos para el menú móvil */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.open {
+            max-height: 400px; /* Suficiente para mostrar los enlaces */
+        }
+
+        /* Indicadores de progreso (skills) */
+        .progress-bar {
+            background-color: #e2e8f0;
+            border-radius: 999px;
+            overflow: hidden;
+            height: 10px;
+        }
+        .progress-value {
+            background-color: #4fc3f7;
+            height: 100%;
+            border-radius: 999px;
+        }
+        
+        /* Ajuste de imagen de perfil para asemejarse al PDF */
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #e2e8f0; /* Borde gris claro como en el PDF */
+            margin: 0 auto;
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+    <nav class="bg-primary text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Nombre -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-bold text-xl tracking-wider hover:text-secondary transition-colors">C. MAYHUA</a>
+                </div>
+
+                <!-- Enlaces de navegación (Desktop) -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#perfil" class="hover:text-secondary transition-colors uppercase text-sm font-medium">Perfil</a>
+                    <a href="#experiencia" class="hover:text-secondary transition-colors uppercase text-sm font-medium">Experiencia</a>
+                    <a href="#formacion" class="hover:text-secondary transition-colors uppercase text-sm font-medium">Formación</a>
+                    <a href="#habilidades" class="hover:text-secondary transition-colors uppercase text-sm font-medium">Habilidades</a>
+                    <a href="#contacto" class="hover:text-secondary transition-colors uppercase text-sm font-medium">Contacto</a>
+                </div>
+
+                <!-- Botón de Hamburguesa (Mobile) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-secondary focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú desplegable (Mobile) -->
+        <div id="mobile-menu" class="md:hidden bg-primary border-t border-blue-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#perfil" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 hover:text-secondary">Perfil</a>
+                <a href="#experiencia" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 hover:text-secondary">Experiencia</a>
+                <a href="#formacion" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 hover:text-secondary">Formación</a>
+                <a href="#habilidades" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 hover:text-secondary">Habilidades</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 hover:text-secondary">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="perfil" class="pt-20 pb-12 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10">
+            
+            <!-- Imagen de Perfil (Placeholder basado en PDF) -->
+            <div class="md:w-1/3 flex justify-center">
+                <div class="profile-img-container shadow-lg">
+                    <!-- Usando un placeholder, idealmente reemplazarías con la URL real de tu foto -->
+                    <img src="https://placehold.co/400x400/0056b3/ffffff?text=CM" alt="Clipton Mayhua Coaquira" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Resumen y Datos Principales -->
+            <div class="md:w-2/3 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">CLIPTON MAYHUA COAQUIRA</h1>
+                <h2 class="text-2xl text-secondary font-medium mb-4">LICENCIADO EN MARKETING</h2>
+                
+                <p class="text-gray-600 text-lg mb-6 max-w-2xl mx-auto md:mx-0">
+                    Profesional con más de cinco años de experiencia. Especialista en marketing y proyectos. Apasionado por la enseñanza, con habilidades para el trabajo en equipo.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contacto" class="flat-button px-6 py-3 font-medium text-center shadow-sm">Contactar</a>
+                    <button onclick="window.print()" class="bg-gray-200 text-gray-800 hover:bg-gray-300 px-6 py-3 rounded-md font-medium transition-colors text-center shadow-sm">
+                        <i class="fas fa-download mr-2"></i>Descargar CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- COLUMNA IZQUIERDA (Experiencia) -->
+            <div class="lg:col-span-2 space-y-8">
+                
+                <!-- Sección Experiencia Laboral -->
+                <section id="experiencia">
+                    <div class="flex items-center mb-6 border-b-2 border-secondary pb-2">
+                        <i class="fas fa-briefcase text-2xl text-primary mr-3"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 uppercase tracking-wide">Experiencia Laboral</h3>
+                    </div>
+
+                    <div class="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6">
+                        
+                        <!-- Trabajo 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Instituto Certus</h4>
+                            <p class="text-secondary font-medium mb-1">Docente <span class="text-gray-500 text-sm font-normal ml-2">(29/08/2022 - Actualidad)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Elaboración de material didáctico para clases.</li>
+                                <li>Dictado de clases los fines de semana.</li>
+                                <li>Evaluación de los estudiantes.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trabajo 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Discitur</h4>
+                            <p class="text-secondary font-medium mb-1">Encargado de Marketing <span class="text-gray-500 text-sm font-normal ml-2">(02/06/2021 - 30/07/2022)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Planificación y ejecución de estrategias publicitarias.</li>
+                                <li>Generación, gestión y análisis de base de datos.</li>
+                                <li>Coordinación y dirección del equipo de marketing.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trabajo 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Instituto ITEP</h4>
+                            <p class="text-secondary font-medium mb-1">Analista - Encargado de Marketing <span class="text-gray-500 text-sm font-normal ml-2">(24/02/2020 - 30/04/2021)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Transformación digital en el área de marketing.</li>
+                                <li>Generación, gestión y análisis de base de datos.</li>
+                                <li>Diseño de artes publicitarios.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trabajo 4 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Agencia de Marketing Clover Group</h4>
+                            <p class="text-secondary font-medium mb-1">Planner Digital <span class="text-gray-500 text-sm font-normal ml-2">(01/08/2019 - 30/01/2020)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Ejecución de estrategias publicitarias por redes sociales.</li>
+                                <li>Analítica de resultados de campañas.</li>
+                                <li>Maquetación web con WordPress.</li>
+                            </ul>
+                        </div>
+
+                         <!-- Trabajo 5 -->
+                         <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Agencia de Publicidad Six Lab</h4>
+                            <p class="text-secondary font-medium mb-1">Social Media Planner <span class="text-gray-500 text-sm font-normal ml-2">(01/02/2019 - 30/07/2019)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Social Media Planning & Community Management.</li>
+                                <li>Estrategias para campañas publicitarias.</li>
+                                <li>Analítica de resultados de campañas.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trabajo 6 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Escuela de Alta Dirección Profesional</h4>
+                            <p class="text-secondary font-medium mb-1">Jefe de Marketing <span class="text-gray-500 text-sm font-normal ml-2">(01/08/2018 - 30/11/2018)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Ejecución de estrategias publicitarias por redes sociales.</li>
+                                <li>Generación y gestión de base de datos.</li>
+                                <li>Coordinación y dirección del equipo de ventas.</li>
+                            </ul>
+                        </div>
+
+                         <!-- Trabajo 7 -->
+                         <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">El Tablón Food Center</h4>
+                            <p class="text-secondary font-medium mb-1">Asistente de Diseño y Marketing <span class="text-gray-500 text-sm font-normal ml-2">(02/05/2018 - 31/07/2018)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Gestión de la Fan Page de El Tablón - Arequipa.</li>
+                                <li>Supervisión de activaciones BTL.</li>
+                                <li>Soporte a diferentes áreas de la empresa en diseño.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Trabajo 8 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">Agencia de viajes Amerindia</h4>
+                            <p class="text-secondary font-medium mb-1">Community Manager <span class="text-gray-500 text-sm font-normal ml-2">(03/11/2017 - 30/04/2018)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Planificación y ejecución de campañas en medios digitales.</li>
+                                <li>Atención a clientes potenciales por redes sociales.</li>
+                                <li>Diseño de piezas gráficas.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trabajo 9 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] bg-white border-2 border-gray-300 w-4 h-4 rounded-full top-1"></div>
+                            <h4 class="text-xl font-bold text-gray-800">BSG Institute</h4>
+                            <p class="text-secondary font-medium mb-1">Practicante de Marketing Digital <span class="text-gray-500 text-sm font-normal ml-2">(26/04/2017 - 25/08/2017)</span></p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Elaboración de campañas en Facebook Ads.</li>
+                                <li>Elaboración de reportes de publicidad.</li>
+                                <li>Generación y gestión de base de datos.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+                
+                <section id="voluntariado" class="pt-4">
+                    <div class="flex items-center mb-6 border-b-2 border-secondary pb-2">
+                        <i class="fas fa-hands-helping text-2xl text-primary mr-3"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 uppercase tracking-wide">Voluntariado</h3>
+                    </div>
+                    
+                    <div class="flat-card p-6">
+                        <h4 class="text-xl font-bold text-gray-800">PMI Capítulo Sur Perú</h4>
+                        <p class="text-secondary font-medium mb-3">Data Analyst <span class="text-gray-500 text-sm font-normal ml-2">(04/06/2020 - 30/08/2021)</span></p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Elaboración de informes de redes sociales.</li>
+                            <li>Diseño de piezas gráficas.</li>
+                            <li>Análisis de datos.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="space-y-8">
+                
+                <!-- Sección Contacto -->
+                <section id="contacto" class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Contacto</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-center group cursor-pointer" onclick="copyToClipboard('974 372 574', 'teléfono')">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center mr-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span>974 372 574</span>
+                        </li>
+                        <li class="flex items-center group cursor-pointer" onclick="copyToClipboard('clipton.mayhua@gmail.com', 'email')">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center mr-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="break-all">clipton.mayhua@gmail.com</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center mr-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <a href="#" class="hover:text-primary transition-colors">Clipton Mayhua in</a>
+                        </li>
+                        <li class="flex items-center group">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center mr-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>Socabaya - Arequipa</span>
+                        </li>
+                    </ul>
+                    <!-- Notificación de copia -->
+                    <div id="copy-toast" class="hidden mt-4 text-sm text-green-600 font-medium text-center bg-green-50 py-2 rounded">
+                        ¡Copiado al portapapeles!
+                    </div>
+                </section>
+
+                <!-- Sección Formación -->
+                <section id="formacion" class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Formación</h3>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <h4 class="font-bold text-gray-800">MBA Gerencia de Proyectos de Inversión</h4>
+                            <p class="text-sm text-gray-600">Universidad Nacional de San Agustín de Arequipa <br>(2019-2021)</p>
+                            <span class="inline-block bg-blue-100 text-primary text-xs px-2 py-1 rounded mt-1 font-medium">Egresado</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carrera Profesional de Marketing</h4>
+                            <p class="text-sm text-gray-600">Universidad Nacional de San Agustín de Arequipa <br>(2012-2016)</p>
+                            <span class="inline-block bg-blue-100 text-primary text-xs px-2 py-1 rounded mt-1 font-medium">Tercio Superior</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección Estudios Complementarios -->
+                <section class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Estudios Complementarios</h3>
+                    
+                    <ul class="space-y-4">
+                        <li class="border-l-2 border-secondary pl-3">
+                            <h4 class="font-bold text-gray-800 text-sm">Conviértete en especialista en Google Apps Suite</h4>
+                            <p class="text-xs text-gray-600">LinkedIn Learning | 19 horas - Mayo 2021</p>
+                        </li>
+                        <li class="border-l-2 border-secondary pl-3">
+                            <h4 class="font-bold text-gray-800 text-sm">Fundamentos de Marketing Digital</h4>
+                            <p class="text-xs text-gray-600">Interactive Advertising Bureau (IAB Europa) | 40 horas - Junio 2020</p>
+                        </li>
+                        <li class="border-l-2 border-secondary pl-3">
+                            <h4 class="font-bold text-gray-800 text-sm">Social Media Marketing</h4>
+                            <p class="text-xs text-gray-600">Instituto Europeo de Posgrado IEP | 50 horas - Junio 2020</p>
+                        </li>
+                        <li class="border-l-2 border-secondary pl-3">
+                            <h4 class="font-bold text-gray-800 text-sm">Consultor de Marketing y Publicidad</h4>
+                            <p class="text-xs text-gray-600">Plataforma Udemy | 7.5 horas - Junio 2020</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Sección Habilidades -->
+                <section id="habilidades" class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Habilidades</h3>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Resolución de problemas</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Diseño gráfico</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Trabajo en equipo</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Uso de tecnología educativa</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Enseñanza y mentoría</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Comunicación efectiva</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm border border-gray-200">Marketing digital</span>
+                    </div>
+                </section>
+
+                <!-- Sección Idiomas -->
+                <section class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Idiomas</h3>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-gray-700">Español</span>
+                                <span class="text-gray-500">Lengua materna</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-gray-700">Inglés</span>
+                                <span class="text-gray-500">Básico (Hablado/Escrito)</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección Programas -->
+                <section class="flat-card p-6 bg-white">
+                    <h3 class="text-xl font-bold text-gray-800 uppercase tracking-wide mb-4 border-b border-gray-200 pb-2">Programas</h3>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center"><i class="fas fa-file-excel text-green-600 w-6"></i> <span class="text-sm">Excel</span></div>
+                        <div class="flex items-center"><i class="fas fa-file-word text-blue-600 w-6"></i> <span class="text-sm">Word</span></div>
+                        <div class="flex items-center"><i class="fas fa-file-powerpoint text-orange-600 w-6"></i> <span class="text-sm">PowerPoint</span></div>
+                        <div class="flex items-center"><span class="text-orange-500 font-bold w-6 text-sm">Ai</span> <span class="text-sm">Illustrator</span></div>
+                        <div class="flex items-center"><span class="text-blue-500 font-bold w-6 text-sm">Ps</span> <span class="text-sm">Photoshop</span></div>
+                        <div class="flex items-center"><span class="text-purple-500 font-bold w-6 text-sm">Pr</span> <span class="text-sm">PremierePro</span></div>
+                        <div class="flex items-center"><span class="text-purple-700 font-bold w-6 text-sm">Ae</span> <span class="text-sm">After Effects</span></div>
+                        <div class="flex items-center"><span class="text-pink-600 font-bold w-6 text-sm">Xd</span> <span class="text-sm">Adobe XD</span></div>
+                        <div class="flex items-center"><i class="fab fa-wordpress text-gray-700 w-6"></i> <span class="text-sm">WordPress</span></div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-6 text-center mt-8">
+        <p class="text-sm">&copy; <script>document.write(new Date().getFullYear())</script> Clipton Mayhua Coaquira. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Funcionalidad del Menú de Hamburguesa
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('open');
+                
+                // Cambiar el icono
+                if (menu.classList.contains('open')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Cerrar menú al hacer clic en un enlace (para móviles)
+            const menuLinks = menu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('open');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+
+        // Función para copiar texto al portapapeles usando execCommand (por seguridad en iframes)
+        function copyToClipboard(text, type) {
+            // Crear un elemento textarea temporal
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";  // Evitar scroll
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                // Ejecutar el comando de copiado
+                const successful = document.execCommand('copy');
+                if(successful) {
+                    showToast();
+                } else {
+                    console.error('Fallo al copiar');
+                }
+            } catch (err) {
+                console.error('Error al intentar copiar', err);
+            }
+
+            // Limpiar
+            document.body.removeChild(textarea);
+        }
+
+        // Mostrar notificación de copiado
+        function showToast() {
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2000); // Ocultar después de 2 segundos
+        }
+    </script>
+</body>
+</html>
